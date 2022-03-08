@@ -40,3 +40,18 @@ body {
   border-bottom-left-radius: .5rem;
   overflow: hidden;
 }
+
+.container.collapsed {
+  flex-grow: 0;
+}
+
+.container.collapsed .CodeMirror-scroll {
+  position: absolute;
+  overflow: hidden !important;
+}
+
+.open-close {
+  border: none;
+  background-color: #1f2023;
+  cursor: pointer;
+}
