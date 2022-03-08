@@ -19,14 +19,14 @@ function App() {
         <Editor
           value={cssValue}
           handleChangeValue={setCssValue}
-          name={'css'}
+          name={'CSS'}
           language={'css'}
         />
         <Editor
           value={javascriptValue}
           handleChangeValue={setJsValue}
-          name={'javascript'}
-          language={'js'}
+          name={'JS'}
+          language={'javascript'}
         />
       </div>
       <div className="pane">
