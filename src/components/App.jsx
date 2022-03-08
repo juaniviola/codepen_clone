@@ -1,11 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Editor from './Editor';
 
 function App() {
   const [htmlValue, setHtmlValue] = useState('');
   const [cssValue, setCssValue] = useState('');
   const [javascriptValue, setJsValue] = useState('');
+  const [srcDocument, setSrcDocument] = useState('');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDocument(`
+        <html>
+          <body>${htmlValue}</body>
+          <style>${cssValue}</style>
+          <script>${javascriptValue}</script>
+        </html>
+      `);
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [htmlValue, cssValue, javascriptValue]);
 
   return (
     <div>
@@ -31,6 +46,7 @@ function App() {
       </div>
       <div className="pane">
         <iframe
+          srcDoc={srcDocument}
           title="output"
           sandbox="allow-scripts"
           frameBorder="0"
