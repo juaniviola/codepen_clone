@@ -1,7 +1,43 @@
+import React from 'react';
+import { useState } from 'react';
+import Editor from './Editor';
+
 function App() {
+  const [htmlValue, setHtmlValue] = useState('');
+  const [cssValue, setCssValue] = useState('');
+  const [javascriptValue, setJsValue] = useState('');
+
   return (
     <div>
-      <h1>Hola</h1>
+      <div className="pane top-pane">
+        <Editor
+          value={htmlValue}
+          handleChangeValue={setHtmlValue}
+          name={'HTML'}
+          language={'xml'}
+        />
+        <Editor
+          value={cssValue}
+          handleChangeValue={setCssValue}
+          name={'css'}
+          language={'css'}
+        />
+        <Editor
+          value={javascriptValue}
+          handleChangeValue={setJsValue}
+          name={'javascript'}
+          language={'js'}
+        />
+      </div>
+      <div className="pane">
+        <iframe
+          title="output"
+          sandbox="allow-scripts"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+        />
+      </div>
     </div>
   );
 }
