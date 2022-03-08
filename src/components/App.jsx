@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
 import Editor from './Editor';
 
 function App() {
-  const [htmlValue, setHtmlValue] = useState('');
-  const [cssValue, setCssValue] = useState('');
-  const [javascriptValue, setJsValue] = useState('');
+  const [htmlValue, setHtmlValue] = useLocalStorage('html', '');
+  const [cssValue, setCssValue] = useLocalStorage('css', '');
+  const [javascriptValue, setJsValue] = useLocalStorage('js', '');
   const [srcDocument, setSrcDocument] = useState('');
 
   useEffect(() => {
